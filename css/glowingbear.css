@@ -373,6 +373,17 @@ h2 span, h2 small {
     display: block;
 }
 
+/* bold hash before channels */
+li.buffer.channel a span:last-of-type:before {
+    color: #888;
+    content: "#";
+    font-weight: bold;
+}
+
+li.buffer.indent.private a {
+    padding-left: 22px;
+}
+
 /* */
 /* Mobile layout */
 /* */

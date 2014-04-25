@@ -12,6 +12,7 @@ models.service('models', ['$rootScope', '$filter', function($rootScope, $filter)
         // weechat properties
         var fullName = message.full_name;
         var shortName = message.short_name;
+        var trimmedName = shortName.replace(/^[#&+]/, '');
         var title = message.title;
         var number = message.number;
         var pointer = message.pointers[0];
@@ -214,6 +215,7 @@ models.service('models', ['$rootScope', '$filter', function($rootScope, $filter)
             id: pointer,
             fullName: fullName,
             shortName: shortName,
+            trimmedName: trimmedName,
             number: number,
             title: title,
             lines: lines,
@@ -231,6 +233,7 @@ models.service('models', ['$rootScope', '$filter', function($rootScope, $filter)
             getNicklistByTime: getNicklistByTime,
             serverSortKey: serverSortKey,
             indent: indent,
+            type: type,
             history: history,
             addToHistory: addToHistory,
             getHistoryUp: getHistoryUp,
