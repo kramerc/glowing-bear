@@ -1210,8 +1210,16 @@ weechat.directive('bufferLine', function() {
             previousbufferline: '='
         },
 
+        link: {
+            pre: function preLink(scope, iElement, iAttrs, controller) {
+
+                for (var part in scope.bufferline.prefix) {
+
+                }
+            }
+        },
+
         controller: function($scope) {
-            console.log($scope);
         }
 
     }
