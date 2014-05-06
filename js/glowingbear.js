@@ -1212,9 +1212,14 @@ weechat.directive('bufferLine', function() {
 
         link: {
             pre: function preLink(scope, iElement, iAttrs, controller) {
-
-                for (var part in scope.bufferline.prefix) {
-
+                var prefix = "";
+                for (var partNum in scope.bufferline.prefix) {
+                    var part = scope.bufferline.prefix[partNum];
+                    prefix = angular.element("<span>" + part.text + "</span>");
+                    for (var classNum in part.classes) {
+                        prefix.addClass(part.classes[classNum]);
+                    }
+                    iElement.find('td.prefix').append(prefix);
                 }
             }
         },
@@ -1222,7 +1227,7 @@ weechat.directive('bufferLine', function() {
         controller: function($scope) {
         }
 
-    }
+    };
 });
 
 weechat.directive('inputBar', function() {
